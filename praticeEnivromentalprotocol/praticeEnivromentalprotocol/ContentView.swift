@@ -10,14 +10,16 @@ import Observation
 
 
 struct ContentView: View {
-    
+    @Environment(userDefault.self) private var isON: userDefault
     var body: some View {
-        
+        @Bindable var userdefault = isON
         NavigationStack{
             ZStack{
+                Color(userdefault.DarkTheme ? .black : .pink)
+                    .ignoresSafeArea(.all)
                 VStack{
-//                    Toggle("change the theme", isOn: $userdefault.DarkTheme)
-//                        .padding() g
+                    Toggle("change the theme", isOn: $userdefault.DarkTheme)
+                        .padding()
                     Spacer()
                     Text("LOGO")
                         .font(.largeTitle)
@@ -45,4 +47,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(userDefault())
 }

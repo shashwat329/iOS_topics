@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct FeedbackView: View {
+    @Environment(userDefault.self) private var isOn: userDefault
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color(isOn.DarkTheme ? .black: .pink)
+                .ignoresSafeArea()
+            VStack{
+                Text("this is Feedback page!!")
+            }
+        }
     }
 }
 
 #Preview {
     FeedbackView()
+        .environment(userDefault())
 }

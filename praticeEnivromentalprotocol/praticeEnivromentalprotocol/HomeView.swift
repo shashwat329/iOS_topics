@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Environment(userDefault.self) private var isON: userDefault
     var body: some View {
         ZStack{
+            Color(isON.DarkTheme ? .black: .pink)
+                .ignoresSafeArea()
             TabView{
                 FirstView()
                     .tabItem{
@@ -38,4 +41,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environment(userDefault())
 }

@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct AccountView: View {
+    @Environment(userDefault.self) private var isON : userDefault
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color(isON.DarkTheme ? .black: .pink)
+                .ignoresSafeArea()
+            VStack{
+                Text("this is account page!!")
+            }
+        }
     }
 }
 
 #Preview {
     AccountView()
+        .environment(userDefault())
 }
