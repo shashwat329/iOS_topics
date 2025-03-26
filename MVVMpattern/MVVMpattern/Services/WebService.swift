@@ -6,13 +6,14 @@
 //
 
 import Foundation
-enum NetworkError: Error{
+
+enum NetworkError : Error{
     case badURL
     case badResponse
-    case decodingError
+    case badProduct
 }
-class WebService{
-    func getProduct() async throws -> [Product] {
+class WebService {
+    func getProduct() async throws ->[Product] {
         guard let url = URL(string: "https://fakestoreapi.com/products") else{
             throw NetworkError.badURL
         }
@@ -21,12 +22,9 @@ class WebService{
               httpResponse.statusCode == 200 else{
             throw NetworkError.badResponse
         }
-        
-        guard let products = try? JSONDecoder().decode([Product].self, from: data)else{
-            throw NetworkError.decodingError
+        guard let products = try? JSONDecoder().decode([Product].self, from: data) else{
+            throw NetworkError.badProduct
         }
-        
         return products
     }
-    
 }

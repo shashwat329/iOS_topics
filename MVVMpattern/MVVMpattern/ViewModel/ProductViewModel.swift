@@ -2,7 +2,7 @@
 //  ProductViewModel.swift
 //  MVVMpattern
 //
-//  Created by shashwat singh on 15/03/25.
+//  Created by shashwat singh on 25/03/25.
 //
 
 import Foundation
@@ -39,8 +39,5 @@ struct ProductViewModel: Identifiable {
     }
     var price: Double{
         product.price
-    }
-    var image: String{
-        product.image
     }
 }
