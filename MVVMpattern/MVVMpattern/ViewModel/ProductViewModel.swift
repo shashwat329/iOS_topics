@@ -40,4 +40,7 @@ struct ProductViewModel: Identifiable {
     var price: Double{
         product.price
     }
+    var image: String{
+        product.image
+    }
 }

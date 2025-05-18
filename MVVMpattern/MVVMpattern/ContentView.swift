@@ -13,6 +13,8 @@ struct ContentView: View {
         VStack{
             List (vm.products){item in
                 VStack(alignment: .leading){
+//                    Image("bag")
+//                        .resizable()
                     Text(item.title)
                     HStack{
                         Image(systemName: "indianrupeesign")
