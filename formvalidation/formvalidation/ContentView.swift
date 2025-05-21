@@ -16,15 +16,15 @@ struct ContentView: View {
             Form{
                 TextField("Email",text: $loginmodel.email)
                     .autocapitalization(.none)
-                if !loginmodel.emailmsg.isEmpty{
-                    Text(loginmodel.emailmsg)
+                if let emailmsg = loginmodel.emailmsg{
+                    Text(emailmsg.localizedDescription)
                         .foregroundStyle(.red)
                         .font(.caption)
                 }
                 SecureField("Password",text: $loginmodel.password)
                     .autocapitalization(.none)
-                if !loginmodel.passwordmsg.isEmpty{
-                    Text(loginmodel.passwordmsg)
+                if let passwordmsg = loginmodel.passwordmsg{
+                    Text(passwordmsg.localizedDescription)
                         .foregroundStyle(.red)
                         .font(.caption)
                 }
@@ -36,7 +36,7 @@ struct ContentView: View {
                     }
                 }
                 .alert(isPresented: $loginsuccessful) {
-                    Alert(title: Text("Success"))
+                    Alert(title: Text("Form Submited Successfully"))
                 }
             }
         }

@@ -14,10 +14,10 @@ enum FormError: Error ,LocalizedError{
     case wromgpasswordsize
     
     
-    var errorDescription: String{
+    var errorDescription: String?{
         switch self {
             case .emailempty:
-                return "Email canr be empty";
+                return "Email cant be empty";
             case .emailwrongformat:
                 return "Email format is wrong";
             case .passwordempty:
