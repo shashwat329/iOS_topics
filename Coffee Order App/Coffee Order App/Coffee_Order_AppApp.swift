@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct Coffee_Order_AppApp: App {
+    @StateObject private var model: CoffeeModel
+    init() {
+        let webservice = WebService()
+        _model = StateObject (wrappedValue: CoffeeModel(webservice: webservice))
+    }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(model)
         }
     }
 }
