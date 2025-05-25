@@ -25,11 +25,13 @@ struct ContentView: View {
                         Text(order.name)
                             .font(.headline)
                         Spacer()
-                        Text("\(order.total)")
+                        Image(systemName: "dollarsign")
+                            .font(.system(size: 15))
+                        Text(String("\(order.total)"))
                     }
                     HStack{
                         Text(order.coffeeName)
-                        Text("( \(order.size) )")
+                        Text("(\(order.size))")
                     }
                    
 
